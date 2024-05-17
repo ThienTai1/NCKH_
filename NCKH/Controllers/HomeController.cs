@@ -1,16 +1,21 @@
 using Microsoft.AspNetCore.Mvc;
 using NCKH.Models;
 using System.Diagnostics;
-
+using NCKH.Repositories;
+using Microsoft.EntityFrameworkCore;
 namespace NCKH.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ICustomerRepository _customerRepository;
+        private readonly CustomerChurnContext _customerChurnContext;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, CustomerChurnContext customerChurnContext, ICustomerRepository customerRepository)
         {
             _logger = logger;
+            _customerChurnContext = customerChurnContext;
+            _customerRepository = customerRepository;
         }
 
         public IActionResult Index()
@@ -28,9 +33,11 @@ namespace NCKH.Controllers
             return View();
         }
 
-        public IActionResult Table()
+        public async Task<IActionResult> Table()
         {
-            return View();
+            var allCustomer = _customerChurnContext.Customers.AsQueryable();
+            var customers = await allCustomer.ToListAsync();
+            return View(customers);
         }
 
 

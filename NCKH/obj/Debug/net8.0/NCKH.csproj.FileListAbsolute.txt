@@ -135,3 +135,4 @@ E:\source\repos\NCKH\NCKH\obj\Debug\net8.0\NCKH.pdb
 E:\source\repos\NCKH\NCKH\obj\Debug\net8.0\NCKH.genruntimeconfig.cache
 E:\source\repos\NCKH\NCKH\obj\Debug\net8.0\ref\NCKH.dll
 E:\source\repos\NCKH\NCKH\bin\Debug\net8.0\CsvHelper.dll
+E:\source\repos\NCKH\NCKH\obj\Debug\net8.0\NCKH.sourcelink.json
