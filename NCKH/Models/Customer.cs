@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace NCKH.Models;
 
 public partial class Customer
 {
+    [Key]
     public string CustomerId { get; set; } = null!;
 
     public bool Gender { get; set; }

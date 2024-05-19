@@ -46,18 +46,15 @@
     <div class="d-flex flex-row align-items-center justify-content-between mb-4 ">
         <div class="bg-white rounded shadow-sm w-100 p-4 me-1">
             <span class="text-black fw-bolder">Total Columns:</span>
-            <span>1000</span>
+            <span>@ViewBag.ColumnCount</span>
         </div>
         <div class="bg-white rounded shadow-sm w-100 p-4 ms-1">
-            <span class="text-black fw-bolder">Total Columns:</span>
-            <span>1000</span>
+            <span class="text-black fw-bolder">Total Rows:</span>
+            <span>@ViewBag.RowCount</span>
         </div>
     </div>
     <!-- Start Data Table -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-        </div>
         <div class="card-body">
             <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -84,6 +81,7 @@
                             <th>MonthlyCharges</th>
                             <th>TotalCharges</th>
                             <th>Churn</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -102,36 +100,36 @@
                                 <td>@customer.SeniorCitizen</td>
                                 @if (@customer.Partner)
                                 {
-                                    <td>No</td>
+                                    <td>Yes</td>
                                 }
                                 else
                                 {
-                                    <td>Yes</td>
+                                    <td>No</td>
                                 }
                                 @if (@customer.Partner)
                                 {
-                                    <td>No</td>
+                                    <td>Yes</td>
                                 }
                                 else
                                 {
-                                    <td>Yes</td>
+                                    <td>No</td>
                                 }
                                 <td>@customer.Tenure</td>
                                 @if (@customer.PhoneService)
                                 {
-                                    <td>No</td>
+                                    <td>Yes</td>
                                 }
                                 else
                                 {
-                                    <td>Yes</td>
+                                    <td>No</td>
                                 }
                                 @if (@customer.MultipleLines == true)
                                 {
-                                    <td>No</td>
+                                    <td>Yes</td>
                                 }
                                 else if (@customer.MultipleLines == false)
                                 {
-                                    <td>Yes</td>
+                                    <td>No</td>
                                 }
                                 else
                                 {
@@ -140,11 +138,11 @@
                                 <td>@customer.InternetService</td>
                                 @if (@customer.OnlineSecurity == true)
                                 {
-                                    <td>No</td>
+                                    <td>Yes</td>
                                 }
                                 else if (@customer.OnlineSecurity == false)
                                 {
-                                    <td>Yes</td>
+                                    <td>No</td>
                                 }
                                 else
                                 {
@@ -152,11 +150,11 @@
                                 }
                                 @if (@customer.OnlineBackup == true)
                                 {
-                                    <td>No</td>
+                                    <td>Yes</td>
                                 }
                                 else if (@customer.OnlineBackup == false)
                                 {
-                                    <td>Yes</td>
+                                    <td>No</td>
                                 }
                                 else
                                 {
@@ -164,11 +162,11 @@
                                 }
                                 @if (@customer.DeviceProtection == true)
                                 {
-                                    <td>No</td>
+                                    <td>Yes</td>
                                 }
                                 else if (@customer.DeviceProtection == false)
                                 {
-                                    <td>Yes</td>
+                                    <td>No</td>
                                 }
                                 else
                                 {
@@ -176,11 +174,11 @@
                                 }
                                 @if (@customer.TechSupport == true)
                                 {
-                                    <td>No</td>
+                                    <td>Yes</td>
                                 }
                                 else if (@customer.TechSupport == false)
                                 {
-                                    <td>Yes</td>
+                                    <td>No</td>
                                 }
                                 else
                                 {
@@ -188,11 +186,11 @@
                                 }
                                 @if (@customer.StreamingTv == true)
                                 {
-                                    <td>No</td>
+                                    <td>Yes</td>
                                 }
                                 else if (@customer.StreamingTv == false)
                                 {
-                                    <td>Yes</td>
+                                    <td>No</td>
                                 }
                                 else
                                 {
@@ -200,11 +198,11 @@
                                 }
                                 @if (@customer.StreamingMovies == true)
                                 {
-                                    <td>No</td>
+                                    <td>Yes</td>
                                 }
                                 else if (@customer.StreamingMovies == false)
                                 {
-                                    <td>Yes</td>
+                                    <td>No</td>
                                 }
                                 else
                                 {
@@ -213,23 +211,32 @@
                                 <td>@customer.Contract</td>
                                 @if (@customer.PaperlessBilling)
                                 {
-                                    <td>No</td>
+                                    <td>Yes</td>
                                 }
                                 else
                                 {
-                                    <td>Yes</td>
+                                    <td>No</td>
                                 }
                                 <td>@customer.PaymentMethod</td>
                                 <td>@customer.MonthlyCharges</td>
                                 <td>@customer.TotalCharges</td>
                                 @if (@customer.Churn)
                                 {
-                                    <td>No</td>
+                                    <td>Yes</td>
                                 }
                                 else
                                 {
-                                    <td>Yes</td>
+                                    <td>No</td>
                                 }
+                                <td>
+
+                                    <a asp-action="Display" asp-route-id="@customer.CustomerId">View</a> |
+
+                                    <a asp-action="Update" asp-route-id="@customer.CustomerId">Edit</a> |
+
+                                    <a asp-action="Delete" asp-route-id="@customer.CustomerId">Delete</a>
+
+                                </td>
                             </tr>
                         }
                     </tbody>

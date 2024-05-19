@@ -16,7 +16,7 @@ namespace WebsiteFashion.Repositories
         {
             return await _context.Customers.ToListAsync();
         }
-        public async Task<Customer> GetByIdAsync(int id)
+        public async Task<Customer> GetByIdAsync(string id)
         {
             return await _context.Customers.FindAsync(id);
         }
@@ -30,7 +30,7 @@ namespace WebsiteFashion.Repositories
             _context.Customers.Update(customer);
             await _context.SaveChangesAsync();
         }
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(string id)
         {
             var customer = await _context.Customers.FindAsync(id);
             _context.Customers.Remove(customer);
