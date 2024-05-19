@@ -7,7 +7,7 @@ public partial class Customer
 {
     public string CustomerId { get; set; } = null!;
 
-    public string Gender { get; set; } = null!;
+    public bool Gender { get; set; }
 
     public bool SeniorCitizen { get; set; }
 

@@ -91,26 +91,145 @@
                         {
                             <tr>
                                 <td>@customer.CustomerId</td>
-                                <td>@customer.Gender</td>
+                                @if (@customer.Gender)
+                                {
+                                    <td>Female</td>
+                                }
+                                else
+                                {
+                                    <td>Male</td>
+                                }
                                 <td>@customer.SeniorCitizen</td>
-                                <td>@customer.Partner</td>
-                                <td>@customer.Dependents</td>
+                                @if (@customer.Partner)
+                                {
+                                    <td>No</td>
+                                }
+                                else
+                                {
+                                    <td>Yes</td>
+                                }
+                                @if (@customer.Partner)
+                                {
+                                    <td>No</td>
+                                }
+                                else
+                                {
+                                    <td>Yes</td>
+                                }
                                 <td>@customer.Tenure</td>
-                                <td>@customer.PhoneService</td>
-                                <td>@customer.MultipleLines</td>
+                                @if (@customer.PhoneService)
+                                {
+                                    <td>No</td>
+                                }
+                                else
+                                {
+                                    <td>Yes</td>
+                                }
+                                @if (@customer.MultipleLines == true)
+                                {
+                                    <td>No</td>
+                                }
+                                else if (@customer.MultipleLines == false)
+                                {
+                                    <td>Yes</td>
+                                }
+                                else
+                                {
+                                    <td>No phone</td>
+                                }
                                 <td>@customer.InternetService</td>
-                                <td>@customer.OnlineSecurity</td>
-                                <td>@customer.OnlineBackup</td>
-                                <td>@customer.DeviceProtection</td>
-                                <td>@customer.TechSupport</td>
-                                <td>@customer.StreamingTv</td>
-                                <td>@customer.StreamingMovies</td>
+                                @if (@customer.OnlineSecurity == true)
+                                {
+                                    <td>No</td>
+                                }
+                                else if (@customer.OnlineSecurity == false)
+                                {
+                                    <td>Yes</td>
+                                }
+                                else
+                                {
+                                    <td>No internet service</td>
+                                }
+                                @if (@customer.OnlineBackup == true)
+                                {
+                                    <td>No</td>
+                                }
+                                else if (@customer.OnlineBackup == false)
+                                {
+                                    <td>Yes</td>
+                                }
+                                else
+                                {
+                                    <td>No internet service</td>
+                                }
+                                @if (@customer.DeviceProtection == true)
+                                {
+                                    <td>No</td>
+                                }
+                                else if (@customer.DeviceProtection == false)
+                                {
+                                    <td>Yes</td>
+                                }
+                                else
+                                {
+                                    <td>No internet service</td>
+                                }
+                                @if (@customer.TechSupport == true)
+                                {
+                                    <td>No</td>
+                                }
+                                else if (@customer.TechSupport == false)
+                                {
+                                    <td>Yes</td>
+                                }
+                                else
+                                {
+                                    <td>No internet service</td>
+                                }
+                                @if (@customer.StreamingTv == true)
+                                {
+                                    <td>No</td>
+                                }
+                                else if (@customer.StreamingTv == false)
+                                {
+                                    <td>Yes</td>
+                                }
+                                else
+                                {
+                                    <td>No internet service</td>
+                                }
+                                @if (@customer.StreamingMovies == true)
+                                {
+                                    <td>No</td>
+                                }
+                                else if (@customer.StreamingMovies == false)
+                                {
+                                    <td>Yes</td>
+                                }
+                                else
+                                {
+                                    <td>No internet service</td>
+                                }
                                 <td>@customer.Contract</td>
-                                <td>@customer.PaperlessBilling</td>
+                                @if (@customer.PaperlessBilling)
+                                {
+                                    <td>No</td>
+                                }
+                                else
+                                {
+                                    <td>Yes</td>
+                                }
                                 <td>@customer.PaymentMethod</td>
                                 <td>@customer.MonthlyCharges</td>
                                 <td>@customer.TotalCharges</td>
-                                <td>@customer.Churn</td>
+                                @if (@customer.Churn)
+                                {
+                                    <td>No</td>
+                                }
+                                else
+                                {
+                                    <td>Yes</td>
+                                }
                             </tr>
                         }
                     </tbody>
