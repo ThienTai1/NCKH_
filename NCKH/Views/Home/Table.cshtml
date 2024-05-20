@@ -230,11 +230,9 @@
                                 }
                                 <td>
 
-                                    <a asp-action="Display" asp-route-id="@customer.CustomerId">View</a> |
-
-                                    <a asp-action="Update" asp-route-id="@customer.CustomerId">Edit</a> |
-
-                                    <a asp-action="Delete" asp-route-id="@customer.CustomerId">Delete</a>
+                                    <a asp-action="Display" asp-route-id="@customer.CustomerId" class="btn btn-info">View</a> |
+                                    <a asp-action="Update" asp-route-id="@customer.CustomerId" class="btn btn-primary">Edit</a> |
+                                    <a asp-action="Delete" asp-route-id="@customer.CustomerId" class="btn btn-danger">Delete</a>
 
                                 </td>
                             </tr>

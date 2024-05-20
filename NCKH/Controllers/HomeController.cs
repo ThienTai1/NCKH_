@@ -69,6 +69,7 @@ namespace NCKH.Controllers
             var customer = await _customerRepository.GetByIdAsync(id);
             if (customer == null)
             {
+                Console.WriteLine("Customer not found");
                 return NotFound();
             }
 
@@ -81,7 +82,6 @@ namespace NCKH.Controllers
             };
 
             ViewBag.AvailabilityListInternet = new SelectList(availabilityOptionsInternet, "Value", "Text");
-            ;
 
             //Phone service
             var availabilityOptionsPhone = new List<SelectListItem>

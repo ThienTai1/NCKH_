@@ -30,6 +30,49 @@
     <script src="~/js/demo/chart-area-demo.js"></script>
     <script src="~/js/demo/chart-pie-demo.js"></script>
 
+    <script>
+        $(document).ready(function () {
+            // Function to handle the change event of PhoneService checkbox
+            function handlePhoneServiceChange() {
+                if ($('#PhoneService').is(':checked')) {
+                    $('#MultipleLines option[value="null"]').remove();
+                    $('#MultipleLines').val('false').prop('disabled', false);
+                } else {
+                    if ($('#MultipleLines option[value="null"]').length === 0) {
+                        $('#MultipleLines').append('<option value="null" disabled selected>No phone</option>');
+                    }
+                    $('#MultipleLines').prop('disabled', true);
+                }
+            }
+            // Function to handle the change event of InternetService dropdown
+            function handleInternetServiceChange() {
+                var internetServiceValue = $('#InternetService').val();
+                var dependentDropdowns = ['#OnlineSecurity', '#OnlineBackup', '#DeviceProtection', '#TechSupport', '#StreamingTv', '#StreamingMovies'];
+
+                if (internetServiceValue === 'No') {
+                    dependentDropdowns.forEach(function (selector) {
+                        if ($(selector + ' option[value="null"]').length === 0) {
+                            $(selector).append('<option value="null" disabled selected>No internet service</option>');
+                        }
+                        $(selector).val('null').prop('disabled', true);
+                    });
+                } else {
+                    dependentDropdowns.forEach(function (selector) {
+                        $(selector).prop('disabled', false);
+                        $(selector + ' option[value="null"]').remove();
+                    });
+                }
+            }
+
+            // Attach the change event handler to PhoneService checkbox
+            $('#PhoneService').change(handlePhoneServiceChange);
+            $('#InternetService').change(handleInternetServiceChange);
+            // Initialize the state on page load
+            handlePhoneServiceChange();
+            handleInternetServiceChange();
+        });
+    </script>
+
 </head>
 
 <h1>Update</h1>
@@ -42,7 +85,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="CustomerId" class="control-label"></label>
-                <input asp-for="CustomerId" class="form-control" disabled/>
+                <input asp-for="CustomerId" class="form-control"/>
                 <span asp-validation-for="CustomerId" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
@@ -77,14 +120,14 @@
 
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="PhoneService" /> @Html.DisplayNameFor(model => model.PhoneService)
+                    <input id="PhoneService" class="form-check-input" asp-for="PhoneService" /> @Html.DisplayNameFor(model => model.PhoneService)
                 </label>
             </div>
 
             <div class="form-group">
                 <label asp-for="MultipleLines" class="control-label col-md-2">MultipleLines</label>
                 <div class="col-md-10">
-                    <select asp-for="MultipleLines" class="form-control" asp-items="@ViewBag.AvailabilityListPhone">
+                    <select id="MultipleLines" asp-for="MultipleLines" class="form-control" asp-items="@ViewBag.AvailabilityListPhone">
                     </select>
                     <span asp-validation-for="MultipleLines" class="text-danger"></span>
                 </div>
@@ -93,7 +136,7 @@
             <div class="form-group">
                 <label asp-for="InternetService" class="control-label col-md-2">InternetService</label>
                 <div class="col-md-10">
-                    <select asp-for="InternetService" class="form-control" asp-items="@ViewBag.AvailabilityListService">
+                    <select id="InternetService" asp-for="InternetService" class="form-control" asp-items="@ViewBag.AvailabilityListService">
                     </select>
                     <span asp-validation-for="InternetService" class="text-danger"></span>
                 </div>
@@ -101,7 +144,7 @@
             <div class="form-group">
                 <label asp-for="OnlineSecurity" class="control-label col-md-2">OnlineSecurity</label>
                 <div class="col-md-10">
-                    <select asp-for="OnlineSecurity" class="form-control" asp-items="@ViewBag.AvailabilityListInternet">
+                    <select id="OnlineSecurity" asp-for="OnlineSecurity" class="form-control" asp-items="@ViewBag.AvailabilityListInternet">
                     </select>
                     <span asp-validation-for="OnlineSecurity" class="text-danger"></span>
                 </div>
@@ -109,7 +152,7 @@
             <div class="form-group">
                 <label asp-for="OnlineBackup" class="control-label col-md-2">OnlineBackup</label>
                 <div class="col-md-10">
-                    <select asp-for="OnlineBackup" class="form-control" asp-items="@ViewBag.AvailabilityListInternet">
+                    <select id="OnlineBackup" asp-for="OnlineBackup" class="form-control" asp-items="@ViewBag.AvailabilityListInternet">
                     </select>
                     <span asp-validation-for="OnlineBackup" class="text-danger"></span>
                 </div>
@@ -117,7 +160,7 @@
             <div class="form-group">
                 <label asp-for="DeviceProtection" class="control-label col-md-2">DeviceProtection</label>
                 <div class="col-md-10">
-                    <select asp-for="DeviceProtection" class="form-control" asp-items="@ViewBag.AvailabilityListInternet">
+                    <select id="DeviceProtection" asp-for="DeviceProtection" class="form-control" asp-items="@ViewBag.AvailabilityListInternet">
                     </select>
                     <span asp-validation-for="DeviceProtection" class="text-danger"></span>
                 </div>
@@ -125,7 +168,7 @@
             <div class="form-group">
                 <label asp-for="TechSupport" class="control-label col-md-2">TechSupport</label>
                 <div class="col-md-10">
-                    <select asp-for="TechSupport" class="form-control" asp-items="@ViewBag.AvailabilityListInternet">
+                    <select id="TechSupport" asp-for="TechSupport" class="form-control" asp-items="@ViewBag.AvailabilityListInternet">
                     </select>
                     <span asp-validation-for="TechSupport" class="text-danger"></span>
                 </div>
@@ -133,7 +176,7 @@
             <div class="form-group">
                 <label asp-for="StreamingTv" class="control-label col-md-2">StreamingTv</label>
                 <div class="col-md-10">
-                    <select asp-for="StreamingTv" class="form-control" asp-items="@ViewBag.AvailabilityListInternet">
+                    <select id="StreamingTv" asp-for="StreamingTv" class="form-control" asp-items="@ViewBag.AvailabilityListInternet">
                     </select>
                     <span asp-validation-for="StreamingTv" class="text-danger"></span>
                 </div>
@@ -141,7 +184,7 @@
             <div class="form-group">
                 <label asp-for="StreamingMovies" class="control-label col-md-2">OnlineSecurity</label>
                 <div class="col-md-10">
-                    <select asp-for="StreamingMovies" class="form-control" asp-items="@ViewBag.AvailabilityListInternet">
+                    <select id="StreamingMovies" asp-for="StreamingMovies" class="form-control" asp-items="@ViewBag.AvailabilityListInternet">
                     </select>
                     <span asp-validation-for="StreamingMovies" class="text-danger"></span>
                 </div>
@@ -187,7 +230,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Table">Back to List</a>
 </div>
 
 @section Scripts {
