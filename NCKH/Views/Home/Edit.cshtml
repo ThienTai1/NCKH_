@@ -1,0 +1,285 @@
+﻿@model NCKH.Models.Customer
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<head>
+
+    <!-- Custom fonts for this template-->
+    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="~/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/js/demo/chart-area-demo.js"></script>
+    <script src="~/js/demo/chart-pie-demo.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Function to handle the change event of PhoneService checkbox
+            function handlePhoneServiceChange() {
+                if ($('#PhoneService').is(':checked')) {
+                    $('#MultipleLines option[value="null"]').remove();
+                    $('#MultipleLines').val('false').prop('disabled', false);
+                } else {
+                    if ($('#MultipleLines option[value="null"]').length === 0) {
+                        $('#MultipleLines').append('<option value="null" disabled selected>No phone</option>');
+                    }
+                    $('#MultipleLines').prop('disabled', true);
+                }
+            }
+            // Function to handle the change event of InternetService dropdown
+            function handleInternetServiceChange() {
+                var internetServiceValue = $('#InternetService').val();
+                var dependentDropdowns = ['#OnlineSecurity', '#OnlineBackup', '#DeviceProtection', '#TechSupport', '#StreamingTv', '#StreamingMovies'];
+
+                if (internetServiceValue === 'No') {
+                    dependentDropdowns.forEach(function (selector) {
+                        if ($(selector + ' option[value="null"]').length === 0) {
+                            $(selector).append('<option value="null" disabled selected>No internet service</option>');
+                        }
+                        $(selector).val('null').prop('disabled', true);
+                    });
+                } else {
+                    dependentDropdowns.forEach(function (selector) {
+                        $(selector).prop('disabled', false);
+                        $(selector + ' option[value="null"]').remove();
+                    });
+                }
+            }
+
+            // Attach the change event handler to PhoneService checkbox
+            $('#PhoneService').change(handlePhoneServiceChange);
+            $('#InternetService').change(handleInternetServiceChange);
+            // Initialize the state on page load
+            handlePhoneServiceChange();
+            handleInternetServiceChange();
+        });
+    </script>
+
+</head>
+
+<h1>Update</h1>
+
+<h4>Customer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CustomerId" class="control-label"></label>
+                <input asp-for="CustomerId" class="form-control" />
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                <select asp-for="Gender" class="form-control">
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeniorCitizen" class="control-label"></label>
+                <select asp-for="SeniorCitizen" class="form-control">
+                    <option value="">Select SeniorCitizen Status</option>
+                    <option value="1">1</option>
+                    <option value="0">0</option>
+                </select>
+                <span asp-validation-for="SeniorCitizen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Partner" class="control-label"></label>
+                <select asp-for="Partner" class="form-control">
+                    <option value="">Select Partner Status</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <span asp-validation-for="Partner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dependents" class="control-label"></label>
+                <select asp-for="Dependents" class="form-control">
+                    <option value="">Select Dependents Status</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <span asp-validation-for="Dependents" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tenure" class="control-label"></label>
+                <input asp-for="Tenure" class="form-control" />
+                <span asp-validation-for="Tenure" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneService" class="control-label"></label>
+                <select asp-for="PhoneService" class="form-control">
+                    <option value="">Select Phone Service</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <span asp-validation-for="PhoneService" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MultipleLines" class="control-label"></label>
+                <select asp-for="MultipleLines" class="form-control">
+                    <option value="">Select Multiple Lines</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="No phone service">No phone service</option>
+                </select>
+                <span asp-validation-for="MultipleLines" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InternetService" class="control-label"></label>
+                <select asp-for="InternetService" class="form-control">
+                    <option value="">Select Internet Service</option>
+                    <option value="DSL">DSL</option>
+                    <option value="Fiber optic">Fiber optic</option>
+                    <option value="No">No</option>
+                </select>
+                <span asp-validation-for="InternetService" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OnlineSecurity" class="control-label"></label>
+                <select asp-for="OnlineSecurity" class="form-control">
+                    <option value="">Select Online Security</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="No internet service">No internet service</option>
+                </select>
+                <span asp-validation-for="OnlineSecurity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OnlineBackup" class="control-label"></label>
+                <select asp-for="OnlineBackup" class="form-control">
+                    <option value="">Select Online Backup</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="No internet service">No internet service</option>
+                </select>
+                <span asp-validation-for="OnlineBackup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceProtection" class="control-label"></label>
+                <select asp-for="DeviceProtection" class="form-control">
+                    <option value="">Select Device Protection</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="No internet service">No internet service</option>
+                </select>
+                <span asp-validation-for="DeviceProtection" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TechSupport" class="control-label"></label>
+                <select asp-for="TechSupport" class="form-control">
+                    <option value="">Select Tech Support</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="No internet service">No internet service</option>
+                </select>
+                <span asp-validation-for="TechSupport" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StreamingTv" class="control-label"></label>
+                <select asp-for="StreamingTv" class="form-control">
+                    <option value="">Select Streaming TV</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="No internet service">No internet service</option>
+                </select>
+                <span asp-validation-for="StreamingTv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StreamingMovies" class="control-label"></label>
+                <select asp-for="StreamingMovies" class="form-control">
+                    <option value="">Select Streaming Movies</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="No internet service">No internet service</option>
+                </select>
+                <span asp-validation-for="StreamingMovies" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contract" class="control-label"></label>
+                <select asp-for="Contract" class="form-control">
+                    <option value="">Select Contract</option>
+                    <option value="Month-to-month">Month-to-month</option>
+                    <option value="One year">One year</option>
+                    <option value="Two year">Two year</option>
+                </select>
+                <span asp-validation-for="Contract" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaperlessBilling" class="control-label"></label>
+                <select asp-for="PaperlessBilling" class="form-control">
+                    <option value="">Select Paperless Billing</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <span asp-validation-for="PaperlessBilling" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentMethod" class="control-label"></label>
+                <select asp-for="PaymentMethod" class="form-control">
+                    <option value="">Select Payment Method</option>
+                    <option value="Electronic check">Electronic check</option>
+                    <option value="Mailed check">Mailed check</option>
+                    <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
+                    <option value="Credit card (automatic)">Credit card (automatic)</option>
+                </select>
+                <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MonthlyCharges" class="control-label"></label>
+                <input asp-for="MonthlyCharges" class="form-control" />
+                <span asp-validation-for="MonthlyCharges" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalCharges" class="control-label"></label>
+                <input asp-for="TotalCharges" class="form-control" />
+                <span asp-validation-for="TotalCharges" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Churn" class="control-label"></label>
+                <select asp-for="Churn" class="form-control">
+                    <option value="">Select Churn</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <span asp-validation-for="Churn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Table">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

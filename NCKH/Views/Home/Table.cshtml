@@ -39,12 +39,12 @@
     <!--Amount Column - Row -->
     <div class="d-flex flex-row align-items-center justify-content-between mb-4 ">
         <div class="bg-white rounded shadow-sm w-100 p-4 me-1">
-            <span class="text-black fw-bolder">Total Rows:</span>
-            <span>@Model.Count()</span>
+            <span class="text-black fw-bolder">Total Columns:</span>
+            <span>@ViewBag.ColumnCount</span>
         </div>
         <div class="bg-white rounded shadow-sm w-100 p-4 ms-1">
-            <span class="text-black fw-bolder">Total Columns:</span>
-            <span></span>
+            <span class="text-black fw-bolder">Total Rows:</span>
+            <span>@ViewBag.RowCount</span>
         </div>
     </div>
     <div>
@@ -119,12 +119,17 @@
             <a asp-action="Add" class="btn btn-primary btn-sm">
                 <i class="fas fa-plus"></i> Add
             </a>
-            <button class="btn btn-danger btn-sm">
-                <i class="fas fa-trash-alt"></i> Delete
-            </button>
-            <button class="btn btn-warning btn-sm">
-                <i class="fas fa-edit"></i> Edit
-            </button>
+            <a asp-action="Delete">
+                <button class="btn btn-danger btn-sm">
+                    <i class="fas fa-trash-alt"></i> Delete
+                </button>
+            </a>
+            <a asp-action="Edit">
+                <button class="btn btn-warning btn-sm">
+                    <i class="fas fa-edit"></i> Edit
+                </button>
+             </a>
+
             <a asp-action="Predict" class="btn btn-success btn-sm">
                 <i class="fas fa-chart-line"></i> Predict
             </a>

@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using NCKH.Models;
 using System.Diagnostics;
 using NCKH.Repositories;
@@ -48,6 +48,92 @@ namespace NCKH.Controllers
             var customers = await allCustomer.ToListAsync();
             return View(customers);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var customer = await _customerRepository.GetByIdAsync(id);
+            if (customer == null)
+            {
+                return NotFound();
+            }
+
+            return View(customer);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(string id, Customer customer)
+        {
+            if (id != customer.CustomerId)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var existingCustomer = await _customerRepository.GetByIdAsync(id);
+                    if (existingCustomer == null)
+                    {
+                        return NotFound();
+                    }
+
+                    await _customerRepository.UpdateAsync(customer);
+                }
+                catch (Exception)
+                {
+                    // Handle exception if needed
+                    throw;
+                }
+                return RedirectToAction(nameof(Table));
+            }
+            return View(customer);
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var customer = await _customerRepository.GetByIdAsync(id);
+            if (customer == null)
+            {
+                return NotFound();
+            }
+
+            return View(customer);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var customer = await _customerRepository.GetByIdAsync(id);
+            if (customer == null)
+            {
+                return RedirectToAction(nameof(Table));
+            }
+
+            await _customerRepository.DeleteAsync(id);
+            return RedirectToAction(nameof(Table));
+        }
+
 
 
         [HttpGet]
