@@ -24,24 +24,26 @@ namespace NCKH.Migrations
 
             modelBuilder.Entity("NCKH.Models.Customer", b =>
                 {
-                    b.Property<bool>("Churn")
-                        .HasColumnType("bit");
+                    b.Property<string>("CustomerId")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("customerID");
+
+                    b.Property<string>("Churn")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Contract")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("CustomerId")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("customerID");
+                    b.Property<string>("Dependents")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Dependents")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("DeviceProtection")
-                        .HasColumnType("bit");
+                    b.Property<string>("DeviceProtection")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Gender")
                         .IsRequired()
@@ -57,41 +59,44 @@ namespace NCKH.Migrations
                     b.Property<double>("MonthlyCharges")
                         .HasColumnType("float");
 
-                    b.Property<bool?>("MultipleLines")
-                        .HasColumnType("bit");
+                    b.Property<string>("MultipleLines")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("OnlineBackup")
-                        .HasColumnType("bit");
+                    b.Property<string>("OnlineBackup")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("OnlineSecurity")
-                        .HasColumnType("bit");
+                    b.Property<string>("OnlineSecurity")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("PaperlessBilling")
-                        .HasColumnType("bit");
+                    b.Property<string>("PaperlessBilling")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Partner")
-                        .HasColumnType("bit");
+                    b.Property<string>("Partner")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PaymentMethod")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<bool>("PhoneService")
-                        .HasColumnType("bit");
+                    b.Property<string>("PhoneService")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("SeniorCitizen")
-                        .HasColumnType("bit");
+                    b.Property<byte>("SeniorCitizen")
+                        .HasColumnType("tinyint");
 
-                    b.Property<bool?>("StreamingMovies")
-                        .HasColumnType("bit");
+                    b.Property<string>("StreamingMovies")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("StreamingTv")
-                        .HasColumnType("bit")
+                    b.Property<string>("StreamingTv")
+                        .HasColumnType("nvarchar(max)")
                         .HasColumnName("StreamingTV");
 
-                    b.Property<bool?>("TechSupport")
-                        .HasColumnType("bit");
+                    b.Property<string>("TechSupport")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<byte>("Tenure")
                         .HasColumnType("tinyint")
@@ -99,6 +104,8 @@ namespace NCKH.Migrations
 
                     b.Property<double?>("TotalCharges")
                         .HasColumnType("float");
+
+                    b.HasKey("CustomerId");
 
                     b.ToTable("Customer", (string)null);
                 });

@@ -1,0 +1,163 @@
+﻿@model NCKH.Models.Customer
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+<head>
+
+    <!-- Custom fonts for this template-->
+    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="~/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/js/demo/chart-area-demo.js"></script>
+    <script src="~/js/demo/chart-pie-demo.js"></script>
+
+</head>
+
+
+<h1>Add</h1>
+
+<h4>Customer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CustomerId" class="control-label"></label>
+                <input asp-for="CustomerId" class="form-control" />
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                <input asp-for="Gender" class="form-control" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="SeniorCitizen" /> @Html.DisplayNameFor(model => model.SeniorCitizen)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Partner" /> @Html.DisplayNameFor(model => model.Partner)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Dependents" /> @Html.DisplayNameFor(model => model.Dependents)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tenure" class="control-label"></label>
+                <input asp-for="Tenure" class="form-control" />
+                <span asp-validation-for="Tenure" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PhoneService" /> @Html.DisplayNameFor(model => model.PhoneService)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="MultipleLines" class="control-label"></label>
+                <input asp-for="MultipleLines" class="form-control" />
+                <span asp-validation-for="MultipleLines" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InternetService" class="control-label"></label>
+                <input asp-for="InternetService" class="form-control" />
+                <span asp-validation-for="InternetService" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OnlineSecurity" class="control-label"></label>
+                <input asp-for="OnlineSecurity" class="form-control" />
+                <span asp-validation-for="OnlineSecurity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OnlineBackup" class="control-label"></label>
+                <input asp-for="OnlineBackup" class="form-control" />
+                <span asp-validation-for="OnlineBackup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeviceProtection" class="control-label"></label>
+                <input asp-for="DeviceProtection" class="form-control" />
+                <span asp-validation-for="DeviceProtection" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TechSupport" class="control-label"></label>
+                <input asp-for="TechSupport" class="form-control" />
+                <span asp-validation-for="TechSupport" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StreamingTv" class="control-label"></label>
+                <input asp-for="StreamingTv" class="form-control" />
+                <span asp-validation-for="StreamingTv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StreamingMovies" class="control-label"></label>
+                <input asp-for="StreamingMovies" class="form-control" />
+                <span asp-validation-for="StreamingMovies" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contract" class="control-label"></label>
+                <input asp-for="Contract" class="form-control" />
+                <span asp-validation-for="Contract" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PaperlessBilling" /> @Html.DisplayNameFor(model => model.PaperlessBilling)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentMethod" class="control-label"></label>
+                <input asp-for="PaymentMethod" class="form-control" />
+                <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MonthlyCharges" class="control-label"></label>
+                <input asp-for="MonthlyCharges" class="form-control" />
+                <span asp-validation-for="MonthlyCharges" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalCharges" class="control-label"></label>
+                <input asp-for="TotalCharges" class="form-control" />
+                <span asp-validation-for="TotalCharges" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Churn" /> @Html.DisplayNameFor(model => model.Churn)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

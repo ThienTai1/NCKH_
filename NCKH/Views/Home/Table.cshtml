@@ -36,90 +36,101 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-    <p class="mb-4">
-        DataTables is a third party plugin that is used to generate the demo table below.
-        For more information about DataTables, please visit the <a target="_blank"
-                                                                   href="https://datatables.net">official DataTables documentation</a>.
-    </p>
-
     <!--Amount Column - Row -->
     <div class="d-flex flex-row align-items-center justify-content-between mb-4 ">
         <div class="bg-white rounded shadow-sm w-100 p-4 me-1">
-            <span class="text-black fw-bolder">Total Columns:</span>
-            <span>1000</span>
+            <span class="text-black fw-bolder">Total Rows:</span>
+            <span>@Model.Count()</span>
         </div>
         <div class="bg-white rounded shadow-sm w-100 p-4 ms-1">
             <span class="text-black fw-bolder">Total Columns:</span>
-            <span>1000</span>
+            <span></span>
         </div>
     </div>
-    <!-- Start Data Table -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>CustomerId</th>
-                            <th>Gender</th>
-                            <th>SeniorCitizen</th>
-                            <th>Partner</th>
-                            <th>Dependents</th>
-                            <th>Tenure</th>
-                            <th>PhoneService</th>
-                            <th>MultipleLines</th>
-                            <th>InternetService</th>
-                            <th>OnlineSecurity</th>
-                            <th>OnlineBackup</th>
-                            <th>DeviceProtection</th>
-                            <th>TechSupport</th>
-                            <th>StreamingTv</th>
-                            <th>StreamingMovies</th>
-                            <th>Contract</th>
-                            <th>PaperlessBilling</th>
-                            <th>PaymentMethod</th>
-                            <th>MonthlyCharges</th>
-                            <th>TotalCharges</th>
-                            <th>Churn</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var customer in Model)
-                        {
+    <div>
+        <!-- Start Data Table -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Data Tables</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
                             <tr>
-                                <td>@customer.CustomerId</td>
-                                <td>@customer.Gender</td>
-                                <td>@customer.SeniorCitizen</td>
-                                <td>@customer.Partner</td>
-                                <td>@customer.Dependents</td>
-                                <td>@customer.Tenure</td>
-                                <td>@customer.PhoneService</td>
-                                <td>@customer.MultipleLines</td>
-                                <td>@customer.InternetService</td>
-                                <td>@customer.OnlineSecurity</td>
-                                <td>@customer.OnlineBackup</td>
-                                <td>@customer.DeviceProtection</td>
-                                <td>@customer.TechSupport</td>
-                                <td>@customer.StreamingTv</td>
-                                <td>@customer.StreamingMovies</td>
-                                <td>@customer.Contract</td>
-                                <td>@customer.PaperlessBilling</td>
-                                <td>@customer.PaymentMethod</td>
-                                <td>@customer.MonthlyCharges</td>
-                                <td>@customer.TotalCharges</td>
-                                <td>@customer.Churn</td>
+                                <th>CustomerId</th>
+                                <th>Gender</th>
+                                <th>SeniorCitizen</th>
+                                <th>Partner</th>
+                                <th>Dependents</th>
+                                <th>Tenure</th>
+                                <th>PhoneService</th>
+                                <th>MultipleLines</th>
+                                <th>InternetService</th>
+                                <th>OnlineSecurity</th>
+                                <th>OnlineBackup</th>
+                                <th>DeviceProtection</th>
+                                <th>TechSupport</th>
+                                <th>StreamingTv</th>
+                                <th>StreamingMovies</th>
+                                <th>Contract</th>
+                                <th>PaperlessBilling</th>
+                                <th>PaymentMethod</th>
+                                <th>MonthlyCharges</th>
+                                <th>TotalCharges</th>
+                                <th>Churn</th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach (var customer in Model)
+                            {
+                                <tr>
+                                    <td>@customer.CustomerId</td>
+                                    <td>@customer.Gender</td>
+                                    <td>@customer.SeniorCitizen</td>
+                                    <td>@customer.Partner</td>
+                                    <td>@customer.Dependents</td>
+                                    <td>@customer.Tenure</td>
+                                    <td>@customer.PhoneService</td>
+                                    <td>@customer.MultipleLines</td>
+                                    <td>@customer.InternetService</td>
+                                    <td>@customer.OnlineSecurity</td>
+                                    <td>@customer.OnlineBackup</td>
+                                    <td>@customer.DeviceProtection</td>
+                                    <td>@customer.TechSupport</td>
+                                    <td>@customer.StreamingTv</td>
+                                    <td>@customer.StreamingMovies</td>
+                                    <td>@customer.Contract</td>
+                                    <td>@customer.PaperlessBilling</td>
+                                    <td>@customer.PaymentMethod</td>
+                                    <td>@customer.MonthlyCharges</td>
+                                    <td>@customer.TotalCharges</td>
+                                    <td>@customer.Churn</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- End Data Table -->
+        <!-- End Data Table -->
 
+        <div class="d-flex justify-content-between">
+            <a asp-action="Add" class="btn btn-primary btn-sm">
+                <i class="fas fa-plus"></i> Add
+            </a>
+            <button class="btn btn-danger btn-sm">
+                <i class="fas fa-trash-alt"></i> Delete
+            </button>
+            <button class="btn btn-warning btn-sm">
+                <i class="fas fa-edit"></i> Edit
+            </button>
+            <a asp-action="Predict" class="btn btn-success btn-sm">
+                <i class="fas fa-chart-line"></i> Predict
+            </a>
+        </div>
+
+    </div>
 
 </div>
 <!-- /.container-fluid -->

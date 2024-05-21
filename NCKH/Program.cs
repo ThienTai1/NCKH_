@@ -17,6 +17,10 @@ builder.Services.AddScoped<ICustomerRepository, EFCustomerRepository>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+// Add services to the container.
+builder.Services.AddControllers();
+builder.Services.AddHttpClient();
+
 var app = builder.Build();
 
 

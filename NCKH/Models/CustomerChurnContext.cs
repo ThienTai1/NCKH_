@@ -28,7 +28,7 @@ public partial class CustomerChurnContext : DbContext
             entity
                 .HasNoKey()
                 .ToTable("Customer");
-
+            entity.HasKey(e => e.CustomerId);
             entity.Property(e => e.Contract).HasMaxLength(50);
             entity.Property(e => e.CustomerId)
                 .HasMaxLength(50)

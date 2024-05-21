@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "E:\\source\\repos\\NCKH\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7FB60E65-16D0-4FE2-9140-31CFF5BF6FA5}|NCKH\\NCKH.csproj|e:\\source\\repos\\nckh\\nckh\\views\\home\\table.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7FB60E65-16D0-4FE2-9140-31CFF5BF6FA5}|NCKH\\NCKH.csproj|solutionrelative:nckh\\views\\home\\table.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7FB60E65-16D0-4FE2-9140-31CFF5BF6FA5}|NCKH\\NCKH.csproj|e:\\source\\repos\\nckh\\nckh\\views\\home\\predict.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7FB60E65-16D0-4FE2-9140-31CFF5BF6FA5}|NCKH\\NCKH.csproj|solutionrelative:nckh\\views\\home\\predict.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7FB60E65-16D0-4FE2-9140-31CFF5BF6FA5}|NCKH\\NCKH.csproj|e:\\source\\repos\\nckh\\nckh\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7FB60E65-16D0-4FE2-9140-31CFF5BF6FA5}|NCKH\\NCKH.csproj|solutionrelative:nckh\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7FB60E65-16D0-4FE2-9140-31CFF5BF6FA5}|NCKH\\NCKH.csproj|e:\\source\\repos\\nckh\\nckh\\views\\home\\predictionresult.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7FB60E65-16D0-4FE2-9140-31CFF5BF6FA5}|NCKH\\NCKH.csproj|solutionrelative:nckh\\views\\home\\predictionresult.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB60E65-16D0-4FE2-9140-31CFF5BF6FA5}|NCKH\\NCKH.csproj|e:\\source\\repos\\nckh\\nckh\\views\\home\\table.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7FB60E65-16D0-4FE2-9140-31CFF5BF6FA5}|NCKH\\NCKH.csproj|solutionrelative:nckh\\views\\home\\table.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7FB60E65-16D0-4FE2-9140-31CFF5BF6FA5}|NCKH\\NCKH.csproj|e:\\source\\repos\\nckh\\nckh\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,6 +21,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{7FB60E65-16D0-4FE2-9140-31CFF5BF6FA5}|NCKH\\NCKH.csproj|e:\\source\\repos\\nckh\\nckh\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7FB60E65-16D0-4FE2-9140-31CFF5BF6FA5}|NCKH\\NCKH.csproj|solutionrelative:nckh\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB60E65-16D0-4FE2-9140-31CFF5BF6FA5}|NCKH\\NCKH.csproj|e:\\source\\repos\\nckh\\nckh\\views\\home\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7FB60E65-16D0-4FE2-9140-31CFF5BF6FA5}|NCKH\\NCKH.csproj|solutionrelative:nckh\\views\\home\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,54 +34,81 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\source\\repos\\NCKH\\NCKH\\Program.cs",
-              "RelativeDocumentMoniker": "NCKH\\Program.cs",
-              "ToolTip": "E:\\source\\repos\\NCKH\\NCKH\\Program.cs",
-              "RelativeToolTip": "NCKH\\Program.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T06:15:47.803Z"
+              "Title": "PredictionResult.cshtml",
+              "DocumentMoniker": "E:\\source\\repos\\NCKH\\NCKH\\Views\\Home\\PredictionResult.cshtml",
+              "RelativeDocumentMoniker": "NCKH\\Views\\Home\\PredictionResult.cshtml",
+              "ToolTip": "E:\\source\\repos\\NCKH\\NCKH\\Views\\Home\\PredictionResult.cshtml",
+              "RelativeToolTip": "NCKH\\Views\\Home\\PredictionResult.cshtml",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAAEUAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-21T01:18:50.393Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "HomeController.cs",
               "DocumentMoniker": "E:\\source\\repos\\NCKH\\NCKH\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "NCKH\\Controllers\\HomeController.cs",
               "ToolTip": "E:\\source\\repos\\NCKH\\NCKH\\Controllers\\HomeController.cs",
               "RelativeToolTip": "NCKH\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAaAAAA",
+              "ViewState": "AQIAAG0AAAAAAAAAAAAAAIQAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-17T06:09:56.015Z"
+              "WhenOpened": "2024-05-20T15:00:04.443Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Table.cshtml",
               "DocumentMoniker": "E:\\source\\repos\\NCKH\\NCKH\\Views\\Home\\Table.cshtml",
               "RelativeDocumentMoniker": "NCKH\\Views\\Home\\Table.cshtml",
               "ToolTip": "E:\\source\\repos\\NCKH\\NCKH\\Views\\Home\\Table.cshtml",
               "RelativeToolTip": "NCKH\\Views\\Home\\Table.cshtml",
-              "ViewState": "AQIAACQAAAAAAAAAAADwv3kAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-05-17T06:02:48.816Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "Predict.cshtml",
+              "DocumentMoniker": "E:\\source\\repos\\NCKH\\NCKH\\Views\\Home\\Predict.cshtml",
+              "RelativeDocumentMoniker": "NCKH\\Views\\Home\\Predict.cshtml",
+              "ToolTip": "E:\\source\\repos\\NCKH\\NCKH\\Views\\Home\\Predict.cshtml",
+              "RelativeToolTip": "NCKH\\Views\\Home\\Predict.cshtml",
+              "ViewState": "AQIAAM8AAAAAAAAAAAAiwOMAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-20T14:51:22.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Add.cshtml",
+              "DocumentMoniker": "E:\\source\\repos\\NCKH\\NCKH\\Views\\Home\\Add.cshtml",
+              "RelativeDocumentMoniker": "NCKH\\Views\\Home\\Add.cshtml",
+              "ToolTip": "E:\\source\\repos\\NCKH\\NCKH\\Views\\Home\\Add.cshtml",
+              "RelativeToolTip": "NCKH\\Views\\Home\\Add.cshtml",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAABkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-17T14:42:45.328Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Customer.cs",
               "DocumentMoniker": "E:\\source\\repos\\NCKH\\NCKH\\Models\\Customer.cs",
               "RelativeDocumentMoniker": "NCKH\\Models\\Customer.cs",
               "ToolTip": "E:\\source\\repos\\NCKH\\NCKH\\Models\\Customer.cs",
               "RelativeToolTip": "NCKH\\Models\\Customer.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAAmwC8AAAAVAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-17T06:02:47.16Z"
             }

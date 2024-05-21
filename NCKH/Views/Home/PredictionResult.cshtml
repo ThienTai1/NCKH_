@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Prediction Result";
+    var predictionResult = ViewBag.PredictionResult != null ? Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(ViewBag.PredictionResult) : null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Custom fonts for this template-->
+    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="~/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/js/demo/chart-area-demo.js"></script>
+    <script src="~/js/demo/chart-pie-demo.js"></script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+
+        .result-box {
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Prediction Result</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="result-box">
+                    @if (predictionResult != null)
+                    {
+                        <h4 class="text-success">Success!</h4>
+                        <p>The prediction probabilities for the given customer data are:</p>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <strong>Probability of No Churn:</strong> @String.Format("{0:P2}", (double)predictionResult.predict[0][0])
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Probability of Churn:</strong> @String.Format("{0:P2}", (double)predictionResult.predict[0][1])
+                            </li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <h4 class="text-danger">Error!</h4>
+                        <p>Unable to retrieve prediction result.</p>
+                    }
+                    <div class="text-center">
+                        <a asp-action="Predict" class="btn btn-primary mt-3">Make Another Prediction</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
